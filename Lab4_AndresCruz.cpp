@@ -49,6 +49,14 @@ void Mazmorra(){
 	cout<<"La matriz queda: "<<endl;
 	imprimirMatriz(mazmorra,size,pfila);
 	cout<<endl;
+	int cont=0;
+	for(int x=0;x<size;x++){
+		for(int y=0;y<pfila.length();y++){
+			if(mazmorra[x][y]=='.')
+				cont++;	
+		}
+	}
+	cout<<"La cantidad de azulejos seguros es: "<<cont<<endl;
 	liberarMatriz(mazmorra,size);
 }
 
