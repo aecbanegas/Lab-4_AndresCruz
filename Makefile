@@ -1,5 +1,5 @@
-main:	main.o
-	g++  main.o -o main
+main.exe: Lab4_AndresCruz.o
+	g++ Lab4_AndresCruz.o -o main.exe
 
-main.o:	Lab4_AndresCruz.cpp
+Lab4_AndresCruz.o:	Lab4_AndresCruz.cpp
 	g++ -c Lab4_AndresCruz.cpp
