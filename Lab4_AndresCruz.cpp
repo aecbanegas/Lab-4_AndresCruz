@@ -10,7 +10,7 @@ void llenarMatriz(char**,int,string);
 void Mazmorra();
 void imprimirMatriz(char**,int,string);
 
-int main(){
+int main(){//menu principal
 	int opcm=0;
 	while(opcm!=2){
 		cout<<"Menu"<<endl
@@ -24,7 +24,7 @@ int main(){
 	}	
 }
 
-char** crearMatriz(int size, string pfila){
+char** crearMatriz(int size, string pfila){//crear matriz
 	char** matriz=new char*[size];
 	for(int i=0;i<size;i++){
 		matriz[i]=new char[pfila.length()];
@@ -105,7 +105,7 @@ void llenarMatriz(char** matriz, int size, string pfila){
 	}
 }
 
-void liberarMatriz(char** matriz,int size){
+void liberarMatriz(char** matriz,int size){//libera el espacio de memoria dinamica de la matriz
 	if(matriz!=NULL){
 		for(int i=0;i<size;i++){
 			delete[] matriz[i];
