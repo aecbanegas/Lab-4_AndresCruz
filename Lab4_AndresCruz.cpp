@@ -76,21 +76,21 @@ void llenarMatriz(char** matriz, int size, string pfila){
 	for(int x=1;x<size;x++){
 		bool izq=false,cen=false,der=false;
 		for(int y=0;y<pfila.length();y++){
-			if((y-1)<0){
+			if((y-1)<0){//validacion de espacio vacio
 				izq=true;
-			}else if(matriz[x-1][y-1]=='.'){
+			}else if(matriz[x-1][y-1]=='.'){//validacion de azulejo
 				izq=true;
 			}else{
 				izq=false;
 			}
-			if((y+1)==pfila.length()){
+			if((y+1)==pfila.length()){//validacion de espacio vacio
 				der=true;
-			}else if(matriz[x-1][y+1]=='.'){
+			}else if(matriz[x-1][y+1]=='.'){//validacion de azulejo
 				der=true;
 			}else{
 				der=false;
 			}
-			if(matriz[x-1][y]=='.'){
+			if(matriz[x-1][y]=='.'){//validacion de azulejo
 				cen=true;
 			}else{
 				cen=false;
