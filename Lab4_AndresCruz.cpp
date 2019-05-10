@@ -9,6 +9,7 @@ void liberarMatriz(char**,int);
 void llenarMatriz(char**,int,string);
 void Mazmorra();
 void imprimirMatriz(char**,int,string);
+bool valPfila(string);
 
 int main(){//menu principal
 	int opcm=0;
@@ -44,6 +45,12 @@ void Mazmorra(){
 	cout<<"Ingrese el patron de la primera fila utilizando ^ y ."<<endl
 		<<"siendo ^ las trampas y . los lugares seguros: "<<endl;
 	cin>>pfila;
+	while(valPfila(pfila)){
+		cout<<"Ingrese el patron de la primera fila utilizando ^ y ."<<endl
+                <<"siendo ^ las trampas y . los lugares seguros "<<endl
+		<<"ingrese solo caracteres validos: "<<endl;
+	        cin>>pfila;
+	}
 	char** mazmorra= crearMatriz(size,pfila);//se crea la matriz a traves del metodo crearMatriz
 	llenarMatriz(mazmorra,size,pfila);
 	cout<<"La matriz queda: "<<endl;
@@ -61,6 +68,7 @@ void Mazmorra(){
 }
 
 void imprimirMatriz(char** matriz,int size,string pfila){
+	//impresion de los datos que contiene la matriz
 	for(int x=0;x<size;x++){
 		for(int y=0;y<pfila.length();y++){
 			cout<<matriz[x][y];
@@ -97,6 +105,7 @@ void llenarMatriz(char** matriz, int size, string pfila){
 			}
 			if((izq==true&&cen==true&&der==false)||(izq==false&&cen==true&&der==true)||
 					(izq==false&&cen==false&&der==true)||(izq==true&&cen==false&&der==false)){
+				//asignacion del azulejo debido a las validaciones creadas
 				matriz[x][y]='^';
 			}else{
 				matriz[x][y]='.';
@@ -113,5 +122,18 @@ void liberarMatriz(char** matriz,int size){//libera el espacio de memoria dinami
 		}
 		delete[] matriz;
 		matriz=NULL;
+	}
+}
+bool valPfila(string pfila){
+	int cont=0;
+	for(int i=0;i<pfila.length();i++){
+		if(pfila[i]=='.'||pfila[i]=='^'){
+			cont++;
+		}
+	}
+	if(cont==pfila.length()){
+		return false;
+	}else{
+		return true;
 	}
 }
