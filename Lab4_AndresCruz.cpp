@@ -44,13 +44,13 @@ void Mazmorra(){
 	cout<<"Ingrese el patron de la primera fila utilizando ^ y ."<<endl
 		<<"siendo ^ las trampas y . los lugares seguros: "<<endl;
 	cin>>pfila;
-	char** mazmorra= crearMatriz(size,pfila);
+	char** mazmorra= crearMatriz(size,pfila);//se crea la matriz a traves del metodo crearMatriz
 	llenarMatriz(mazmorra,size,pfila);
 	cout<<"La matriz queda: "<<endl;
-	imprimirMatriz(mazmorra,size,pfila);
+	imprimirMatriz(mazmorra,size,pfila);//se muestra la matriz final
 	cout<<endl;
 	int cont=0;
-	for(int x=0;x<size;x++){
+	for(int x=0;x<size;x++){//se inicia el conteo de azulejos seguros en la matriz
 		for(int y=0;y<pfila.length();y++){
 			if(mazmorra[x][y]=='.')
 				cont++;	
